@@ -49,7 +49,7 @@ public class MD5 {
         try {
             resultString = origin;
             MessageDigest md = MessageDigest.getInstance("MD5");
-            resultString = byteArrayToHexString(md.digest(resultString.getBytes()));
+            resultString = byteArrayToHexString(md.digest(resultString.getBytes("utf-8")));
         } catch (Exception e) {
             e.printStackTrace();
         }
