@@ -24,7 +24,7 @@ Page({
   getOpenId: function(code){
     var that = this;
     wx.request({ 
-        url: 'https://www.see-source.com/weixinpay/GetOpenId', 
+        url: 'getApp().globalData.serverUrl + '/wxController.do?GetOpenId', 
         method: 'POST',
         header: {
            'content-type': 'application/x-www-form-urlencoded'
@@ -40,7 +40,7 @@ Page({
   xiadan: function(openId){
     var that = this;
     wx.request({
-        url: 'https://www.see-source.com/weixinpay/xiadan', 
+        url: 'getApp().globalData.serverUrl + '/wxController.do?xiadan', 
         method: 'POST',
         header: {
            'content-type': 'application/x-www-form-urlencoded'
@@ -57,7 +57,7 @@ Page({
   sign: function(prepay_id){
     var that = this;
     wx.request({
-        url: 'https://www.see-source.com/weixinpay/sign', 
+        url: 'getApp().globalData.serverUrl + '/wxController.do?sign', 
         method: 'POST',
         header: {
            'content-type': 'application/x-www-form-urlencoded'
