@@ -25,6 +25,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    serverUrl: "https://www.yourwebsite.com/",
   }
 })
