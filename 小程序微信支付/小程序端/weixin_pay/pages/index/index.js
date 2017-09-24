@@ -32,6 +32,7 @@ Page({
         data: {'code':code},
         success: function(res) {
            var openId = res.data.openid;
+           wx.setStorageSync('openid', openId);
            that.xiadan(openId);
         }
     })
@@ -82,5 +83,24 @@ Page({
       'fail':function(res){
       }
     })
-  }  
+  },
+  //退款
+  refund: function(){
+    var that = this;
+    wx.request({ 
+        url: 'getApp().globalData.serverUrl + '/wxController.do?refund', 
+        method: 'POST',
+        header: {
+           'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+         'unionid': wx.getStorageSync("openid"),
+          //需退款的订单id
+         'orderId':orderid
+        },
+        success: function(res) {
+          
+        }
+    })
+  },
 })
