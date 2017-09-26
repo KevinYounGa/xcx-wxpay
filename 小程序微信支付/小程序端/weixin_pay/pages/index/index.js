@@ -79,6 +79,24 @@ Page({
       'signType': obj.signType,
       'paySign': obj.paySign,
       'success':function(res){
+        
+         //发送支付成功的模板消息
+          wx.request({
+              url: getApp().globalData.serverUrl + '/wxController.do?sendTemplateMsg',
+              method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+               },
+              data: {
+                'openid': wx.getStorageSync('openId'),
+                'prepay_id': prepay_id,
+                'body': that.data.body,
+                'scene': scene
+                },
+                success: function (res) {
+                  console.log(res);
+                }
+            })
       },
       'fail':function(res){
       }
